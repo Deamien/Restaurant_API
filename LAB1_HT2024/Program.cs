@@ -27,7 +27,6 @@ namespace LAB1_HT2024
 
             app.UseAuthorization();
 
-
             app.MapControllers();
 
             app.Run();
