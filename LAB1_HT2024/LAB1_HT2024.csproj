@@ -18,9 +18,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\DTOs\" />
-    <Folder Include="Models\ViewModels\" />
-    <Folder Include="Services\" />
+    <Folder Include="Models\DTOs\CustomerDTOs\" />
+    <Folder Include="Models\DTOs\TableDTOs\" />
+    <Folder Include="Models\DTOs\ReservationDTOs\" />
+    <Folder Include="Models\ViewModels\CustomerViewModel\" />
+    <Folder Include="Models\ViewModels\TableViewModel\" />
+    <Folder Include="Models\ViewModels\ReservationViewModel\" />
+    <Folder Include="Services\ReservationService\" />
+    <Folder Include="Services\CustomerService\" />
+    <Folder Include="Services\MenuService\" />
+    <Folder Include="Services\TableService\" />
   </ItemGroup>
 
 </Project>
