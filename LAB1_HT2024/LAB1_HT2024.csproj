@@ -7,6 +7,49 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\DTOs\CustomerDTOs\**" />
+    <Compile Remove="Models\DTOs\ReservationDTOs\**" />
+    <Compile Remove="Models\DTOs\TableDTOs\**" />
+    <Compile Remove="Models\ViewModels\CustomerViewModel\**" />
+    <Compile Remove="Models\ViewModels\ReservationViewModel\**" />
+    <Compile Remove="Models\ViewModels\TableViewModel\**" />
+    <Compile Remove="Services\CustomerService\**" />
+    <Compile Remove="Services\MenuService\**" />
+    <Compile Remove="Services\ReservationService\**" />
+    <Compile Remove="Services\TableService\**" />
+    <Content Remove="Models\DTOs\CustomerDTOs\**" />
+    <Content Remove="Models\DTOs\ReservationDTOs\**" />
+    <Content Remove="Models\DTOs\TableDTOs\**" />
+    <Content Remove="Models\ViewModels\CustomerViewModel\**" />
+    <Content Remove="Models\ViewModels\ReservationViewModel\**" />
+    <Content Remove="Models\ViewModels\TableViewModel\**" />
+    <Content Remove="Services\CustomerService\**" />
+    <Content Remove="Services\MenuService\**" />
+    <Content Remove="Services\ReservationService\**" />
+    <Content Remove="Services\TableService\**" />
+    <EmbeddedResource Remove="Models\DTOs\CustomerDTOs\**" />
+    <EmbeddedResource Remove="Models\DTOs\ReservationDTOs\**" />
+    <EmbeddedResource Remove="Models\DTOs\TableDTOs\**" />
+    <EmbeddedResource Remove="Models\ViewModels\CustomerViewModel\**" />
+    <EmbeddedResource Remove="Models\ViewModels\ReservationViewModel\**" />
+    <EmbeddedResource Remove="Models\ViewModels\TableViewModel\**" />
+    <EmbeddedResource Remove="Services\CustomerService\**" />
+    <EmbeddedResource Remove="Services\MenuService\**" />
+    <EmbeddedResource Remove="Services\ReservationService\**" />
+    <EmbeddedResource Remove="Services\TableService\**" />
+    <None Remove="Models\DTOs\CustomerDTOs\**" />
+    <None Remove="Models\DTOs\ReservationDTOs\**" />
+    <None Remove="Models\DTOs\TableDTOs\**" />
+    <None Remove="Models\ViewModels\CustomerViewModel\**" />
+    <None Remove="Models\ViewModels\ReservationViewModel\**" />
+    <None Remove="Models\ViewModels\TableViewModel\**" />
+    <None Remove="Services\CustomerService\**" />
+    <None Remove="Services\MenuService\**" />
+    <None Remove="Services\ReservationService\**" />
+    <None Remove="Services\TableService\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Arch.EntityFrameworkCore.Design" Version="2.1.15" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.10" />
@@ -18,16 +61,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\DTOs\CustomerDTOs\" />
-    <Folder Include="Models\DTOs\TableDTOs\" />
-    <Folder Include="Models\DTOs\ReservationDTOs\" />
-    <Folder Include="Models\ViewModels\CustomerViewModel\" />
-    <Folder Include="Models\ViewModels\TableViewModel\" />
-    <Folder Include="Models\ViewModels\ReservationViewModel\" />
-    <Folder Include="Services\ReservationService\" />
-    <Folder Include="Services\CustomerService\" />
-    <Folder Include="Services\MenuService\" />
-    <Folder Include="Services\TableService\" />
+    <Folder Include="Models\ViewModels\" />
   </ItemGroup>
 
 </Project>

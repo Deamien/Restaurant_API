@@ -20,6 +20,6 @@ namespace LAB1_HT2024.Models
         [RegularExpression(@"^\d{10}$", ErrorMessage = "Phone number must be exactly 10 digits.")]
         public int PhoneNumber { get; set; }
 
-        public virtual ICollection<Reservation>? Reservations { get; set; }
+        public virtual ICollection<Reservation>? reservation { get; set; }
     }
 }

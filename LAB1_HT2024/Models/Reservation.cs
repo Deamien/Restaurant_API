@@ -14,16 +14,13 @@ namespace LAB1_HT2024.Models
         public DateTime ReservationStart { get; set; }
 
         [Required]
-        public DateTime ReservationEnd { get; set; }
-
-        [Required]
         [ForeignKey("Table")]
         public int FK_TableId { get; set; }
-        public Table Tables { get; set; }
+        public Table table { get; set; }
 
         [Required]
         [ForeignKey("Customer")]
         public int FK_CustomerId { get; set; }
-        public Customer Customers { get; set; }
+        public Customer customer { get; set; }
     }
 }
