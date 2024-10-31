@@ -12,8 +12,6 @@ namespace LAB1_HT2024.Models
         [Required]
         public int Seats { get; set; }
 
-        [Required]
-        public bool TableAvailability { get; set; }
         public virtual ICollection<Reservation>? reservation { get; set; }
     }
 }
