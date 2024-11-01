@@ -7,11 +7,9 @@ namespace LAB1_HT2024.Models
         [Key]
         public int TableId { get; set; }
 
-        //kanske lägger till en grej här senare
-
         [Required]
         public int Seats { get; set; }
 
-        public virtual ICollection<Reservation>? reservation { get; set; }
+        public ICollection<Reservation> reservation { get; set; }
     }
 }
