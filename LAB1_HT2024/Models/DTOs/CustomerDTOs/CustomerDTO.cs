@@ -1,4 +1,4 @@
-﻿namespace LAB1_HT2024.Models.DTOs
+﻿namespace LAB1_HT2024.Models.DTOs.NewFolder
 {
     public class CustomerDTO
     {
