@@ -1,4 +1,6 @@
-﻿namespace LAB1_HT2024.Models.DTOs.NewFolder
+﻿using LAB1_HT2024.Models.DTOs.ReservationDTOs;
+
+namespace LAB1_HT2024.Models.DTOs.CustomerDTOs
 {
     public class CustomerDTO
     {

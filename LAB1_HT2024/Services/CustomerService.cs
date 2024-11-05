@@ -1,7 +1,7 @@
-﻿using LAB1_HT2024.Services.IServices;
-using Microsoft.IdentityModel.Tokens;
-using LAB1_HT2024.Data.Repository.IRepository;
-using LAB1_HT2024.Models;
+﻿using LAB1_HT2024.Data.Repository.IRepository;
+using LAB1_HT2024.Models.ViewModels;
+using LAB1_HT2024.Services.IServices;
+
 
 namespace LAB1_HT2024.Services
 {
@@ -14,20 +14,21 @@ namespace LAB1_HT2024.Services
             _customerRepository = customerRepository;
         }
 
-        public async Task<IEnumerable<Customer>> GetAllCustomers()
+        public async Task<IEnumerable<CustomerViewModel>> GetAllCustomers()
         {
             var customerList = await _customerRepository.GetAllCustomers();
 
-            var CustomerList = customerList.Select(c => new Customer
+            var CustomerList = customerList.Select(c => new CustomerViewModel
             {
                 CustomerId = c.CustomerId,
                 FirstName = c.FirstName,
                 LastName = c.LastName,
                 EmailAddress = c.EmailAddress,
+                PhoneNumber = c.PhoneNumber,
             }).ToList();
 
             return CustomerList;
         }
     }
-} 
+}
 
