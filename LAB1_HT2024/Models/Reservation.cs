@@ -6,7 +6,7 @@ namespace LAB1_HT2024.Models
     public class Reservation
     {
         [Key]
-        public int ReservationId { get; set; }
+        public int Id { get; set; }
         [Required]
         public int GroupSize { get; set; }
 

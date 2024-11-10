@@ -7,8 +7,8 @@ namespace LAB1_HT2024.Data.Repository.IRepository
     {
         Task<IEnumerable<Customer>> GetAllCustomers();
         Task<Customer> GetCustomerById(int CustomerId);
-        Task DeleteCustomer();
-        Task UpdateCustomer();
+        Task RemoveCustomer(Customer customer);
+        Task UpdateCustomer(Customer customer);
         Task AddCustomer(Customer customer);
 
     }
