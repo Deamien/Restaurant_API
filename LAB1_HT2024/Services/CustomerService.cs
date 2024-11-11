@@ -34,7 +34,9 @@ namespace LAB1_HT2024.Services
 
         public async Task RemoveCustomer(int CustomerId)
         {
-            var
+            var GetCustomerId = await _customerRepository.GetCustomerById(CustomerId);
+            
+            await _customerRepository.RemoveCustomer(GetCustomerId);
         }
         public async Task UpdateCustomer(CustomerDTO UpdateCustomerDTO)
         {

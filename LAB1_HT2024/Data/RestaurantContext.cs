@@ -1,7 +1,7 @@
 ﻿using LAB1_HT2024.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace MiniProjekt_API.Data
+namespace LAB1_HT2024.Data
 {
     public class RestaurantContext : DbContext
     {

@@ -1,7 +1,7 @@
 ﻿using LAB1_HT2024.Data.Repository.IRepository;
 using LAB1_HT2024.Models;
 using Microsoft.EntityFrameworkCore;
-using MiniProjekt_API.Data;
+using LAB1_HT2024.Data;
 
 namespace LAB1_HT2024.Data.Repository
 {
