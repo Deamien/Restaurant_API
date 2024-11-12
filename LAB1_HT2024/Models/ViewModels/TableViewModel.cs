@@ -2,11 +2,9 @@
 {
     public class TableViewModel
     {
-        public class TableViewModel
-        {
-            public int TableId { get; set; }
-            public int Seats { get; set; }
-        }
+        public int TableId { get; set; }
+        public int Seats { get; set; }
+        
     }
 }
-}
+

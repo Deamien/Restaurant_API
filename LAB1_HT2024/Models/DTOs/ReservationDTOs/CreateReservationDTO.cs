@@ -1,8 +1,7 @@
 ﻿namespace LAB1_HT2024.Models.DTOs.ReservationDTOs
 {
-    public class ReservationDTO
+    public class CreateReservationDTO
     {
-        public int Id { get; set; }
         public int GroupSize { get; set; }
         public int CustomerId { get; set; }
         public int TableId { get; set; }
