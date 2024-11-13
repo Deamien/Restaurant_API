@@ -3,9 +3,9 @@
     public class MenuDTO
     {
         public int DishId { get; set; }
-        public string DishName { get; set; }
-        public int Price { get; set; }
-        public string Description { get; set; }
-        public bool IsAvailable { get; set; }
+        public string dishName { get; set; }
+        public int price { get; set; }
+        public string description { get; set; }
+        public bool isAvailable { get; set; }
     }
 }

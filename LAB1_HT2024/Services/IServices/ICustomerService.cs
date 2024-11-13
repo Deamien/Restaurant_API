@@ -8,8 +8,8 @@ namespace LAB1_HT2024.Services.IServices
         Task<IEnumerable<CustomerViewModel>> GetAllCustomers();
         Task<CustomerViewModel> GetAllCustomerById(int CustomerId);
         Task RemoveCustomer(int CustomerId);
-        Task UpdateCustomer(CustomerDTO UpdateCustomerDTO);
-        Task AddCustomer(CreateCustomerDTO AddCustomerDTO);
+        Task UpdateCustomer(CustomerDTO updateCustomerDTO);
+        Task AddCustomer(CreateCustomerDTO addCustomerDTO);
 
         //Kanske behöver skapa en ny DTO för att några value inte är relevanta
     }

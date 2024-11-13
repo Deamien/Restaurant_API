@@ -22,7 +22,7 @@ namespace LAB1_HT2024.Data.Repository
 
         public async Task<Reservation> GetReservationById(int ReservationId)
         { 
-            return _context.reservations.FirstOrDefault(R => R.Id == ReservationId);
+            return await _context.reservations.FirstOrDefaultAsync(R => R.Id == ReservationId);
         }
 
         public async Task RemoveReservation(int ReservationId) 

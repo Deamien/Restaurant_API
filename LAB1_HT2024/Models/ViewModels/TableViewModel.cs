@@ -3,7 +3,7 @@
     public class TableViewModel
     {
         public int TableId { get; set; }
-        public int Seats { get; set; }
+        public int seats { get; set; }
         
     }
 }

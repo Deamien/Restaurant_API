@@ -3,9 +3,9 @@
     public class ReservationViewModel
     {
         public int ReservationId { get; set; }
-        public int PartySize { get; set; }
-        public DateTime ReservationStart { get; set; }
-        public DateTime ReservationEnd { get; set; }
+        public int groupSize { get; set; }
+        public DateTime reservationStart { get; set; }
+        public DateTime reservationEnd { get; set; }
         public int CustomerId { get; set; }
         public int TableId { get; set; }
     }
