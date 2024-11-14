@@ -6,7 +6,7 @@ namespace LAB1_HT2024.Data.Repository.IRepository
     {
         Task<IEnumerable<Menu>> GetAllMenuItems();
         Task<Menu> GetMenuItemById(int MenuItemId);
-        Task RemoveMenuItem(int MenuItemId);
+        Task RemoveMenuItem(Menu menu);
         Task UpdateMenuItem(Menu menu);
         Task AddMenuItem(Menu menu);
 

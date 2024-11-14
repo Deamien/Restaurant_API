@@ -12,17 +12,19 @@ namespace LAB1_HT2024.Services
     public class ReservationService : IReservationService
     {
         private readonly IReservationRepository _reservationRepository;
+        private readonly ITableRepository _tableRepository;
 
-        public ReservationService(IReservationRepository reservationRepository)
+        public ReservationService(IReservationRepository reservationRepository, ITableRepository tableRepository)
         {
             _reservationRepository = reservationRepository;
+            _tableRepository = tableRepository;
         }
 
         public async Task<IEnumerable<ReservationViewModel>> GetAllReservations()
         {
             var GetReservationList = await _reservationRepository.GetAllReservations();
 
-            var ReservationList = GetReservationList.Select(r => new ReservationViewModel
+            return GetReservationList.Select(r => new ReservationViewModel
             {
                 ReservationId = r.Id,
                 CustomerId = r.CustomerId_FK,
@@ -31,11 +33,9 @@ namespace LAB1_HT2024.Services
                 reservationStart = r.ReservationStart,
                 reservationEnd = r.ReservationEnd
             }).ToList();
-
-            return ReservationList;
         }
-    
-        public async Task<ReservationViewModel> GetReservationById(int ReservationId) 
+
+        public async Task<ReservationViewModel> GetReservationById(int ReservationId)
         {
             var GetReservation = await _reservationRepository.GetReservationById(ReservationId);
 
@@ -48,14 +48,13 @@ namespace LAB1_HT2024.Services
                 reservationEnd = GetReservation.ReservationEnd,
                 reservationStart = GetReservation.ReservationStart
             };
-
         }
 
         public async Task RemoveReservation(int ReservationId)
         {
             var GetReservation = await _reservationRepository.GetReservationById(ReservationId);
 
-            await _reservationRepository.RemoveReservation(GetReservation.Id);
+            await _reservationRepository.RemoveReservation(GetReservation);
         }
 
         public async Task UpdateReservation(ReservationDTO updateReservationDTO)
@@ -68,12 +67,14 @@ namespace LAB1_HT2024.Services
                 reservation.ReservationEnd = updateReservationDTO.reservationEnd;
                 reservation.ReservationStart = updateReservationDTO.reservationStart;
             }
-            
+
             await _reservationRepository.UpdateReservation(reservation);
         }
 
         public async Task AddReservation(CreateReservationDTO createReservationDTO)
         {
+            var AvailableTables = await _tableRepository.GetAvailableTables(createReservationDTO.groupSize, createReservationDTO.reservationStart);
+
             var NewReservation = new Reservation
             {
                 CustomerId_FK = createReservationDTO.CustomerId,

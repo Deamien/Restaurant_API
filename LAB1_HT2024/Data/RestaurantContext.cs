@@ -5,10 +5,10 @@ namespace LAB1_HT2024.Data
 {
     public class RestaurantContext : DbContext
     {
-        public DbSet<Customer> customer { get; set; }
-        public DbSet<Menu> menu { get; set; }
-        public DbSet<Reservation> reservations { get; set; }
-        public DbSet<Table> table { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Menu> Menus { get; set; }
+        public DbSet<Reservation> Reservations { get; set; }
+        public DbSet<Table> Tables { get; set; }
 
         public RestaurantContext(DbContextOptions<RestaurantContext> options) : base(options) { }
     }

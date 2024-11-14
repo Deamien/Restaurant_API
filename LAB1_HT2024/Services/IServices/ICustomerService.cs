@@ -6,7 +6,7 @@ namespace LAB1_HT2024.Services.IServices
     public interface ICustomerService
     {
         Task<IEnumerable<CustomerViewModel>> GetAllCustomers();
-        Task<CustomerViewModel> GetAllCustomerById(int CustomerId);
+        Task<CustomerViewModel> GetCustomerById(int CustomerId);
         Task RemoveCustomer(int CustomerId);
         Task UpdateCustomer(CustomerDTO updateCustomerDTO);
         Task AddCustomer(CreateCustomerDTO addCustomerDTO);

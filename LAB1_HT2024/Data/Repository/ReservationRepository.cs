@@ -8,7 +8,7 @@ namespace LAB1_HT2024.Data.Repository
 {
     public class ReservationRepository : IReservationRepository
     {
-        private readonly RestaurantContext _context;
+        private readonly RestaurantContext _context; 
 
         public ReservationRepository(RestaurantContext context)
         {
@@ -17,31 +17,31 @@ namespace LAB1_HT2024.Data.Repository
 
         public async Task<IEnumerable<Reservation>> GetAllReservations() 
         {
-            return await _context.reservations.ToListAsync();
+            return await _context.Reservations.ToListAsync();
         }
 
         public async Task<Reservation> GetReservationById(int ReservationId)
         { 
-            return await _context.reservations.FirstOrDefaultAsync(R => R.Id == ReservationId);
+            return await _context.Reservations.FirstOrDefaultAsync(R => R.Id == ReservationId);
         }
 
-        public async Task RemoveReservation(int ReservationId) 
+        public async Task RemoveReservation(Reservation reservation) 
         {
-            var EraseReservation = await _context.reservations.FirstOrDefaultAsync(R => R.Id == ReservationId);
-
-            _context.reservations.Remove(EraseReservation);
+            _context.Reservations.Remove(reservation);
 
             await _context.SaveChangesAsync();
         }
+        
         public async Task UpdateReservation(Reservation reservation)
         {
-            _context.reservations.Update(reservation);
+            _context.Reservations.Update(reservation);
 
             await _context.SaveChangesAsync();
         }
+        
         public async Task AddReservation(Reservation reservation) 
         {
-            _context.reservations.Add(reservation);
+            _context.Reservations.Add(reservation);
             
             await _context.SaveChangesAsync();
         }

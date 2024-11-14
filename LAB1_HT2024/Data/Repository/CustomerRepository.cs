@@ -16,32 +16,32 @@ namespace LAB1_HT2024.Data.Repository
 
         public async Task<IEnumerable<Customer>> GetAllCustomers()
         {
-            var CustomerList = await _context.customer.ToListAsync();
+            var CustomerList = await _context.Customers.ToListAsync();
 
             return CustomerList;
         }
 
         public async Task<Customer> GetCustomerById(int CustomerId)
         {
-            return await _context.customer.FirstOrDefaultAsync(C => C.Id == CustomerId);
+            return await _context.Customers.FirstOrDefaultAsync(C => C.Id == CustomerId);
         }
 
         public async Task RemoveCustomer(Customer customer)
         {
-            _context.customer.Remove(customer);
+            _context.Customers.Remove(customer);
 
             await _context.SaveChangesAsync();
         }
 
         public async Task UpdateCustomer(Customer customer)
         {
-            _context.customer.Update(customer);
+            _context.Customers.Update(customer);
 
             await _context.SaveChangesAsync();
         }
         public async Task AddCustomer(Customer customer)
         {
-            await _context.customer.AddAsync(customer);
+            await _context.Customers.AddAsync(customer);
 
             await _context.SaveChangesAsync();
         }

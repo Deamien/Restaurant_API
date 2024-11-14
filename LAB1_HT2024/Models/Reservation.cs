@@ -10,10 +10,7 @@ namespace LAB1_HT2024.Models
         [Required]
         public int GroupSize { get; set; }
 
-        [Required]
-        public DateTime ReservationStart { get; set; }
-        public DateTime ReservationEnd { get; set; }
-
+        
         [Required]
         [ForeignKey("Table")]
         public int TableId_FK { get; set; }
@@ -23,5 +20,11 @@ namespace LAB1_HT2024.Models
         [ForeignKey("Customer")]
         public int CustomerId_FK { get; set; }
         public virtual Customer customer { get; set; }
+
+
+
+        [Required]
+        public DateTime ReservationStart { get; set; }
+        public DateTime ReservationEnd { get; set; }
     }
 }
