@@ -12,6 +12,8 @@ namespace LAB1_HT2024.Data.Repository.IRepository
 
         Task AddTable(Table table);
 
+        Task RemoveTable(Table table);
+
         Task<List<Table>> GetAvailableTables(int groupSize, DateTime reservationStart);
     }
 }

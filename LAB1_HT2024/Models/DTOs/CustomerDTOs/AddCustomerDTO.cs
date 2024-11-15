@@ -1,6 +1,6 @@
 ﻿namespace LAB1_HT2024.Models.DTOs.CustomerDTOs
 {
-    public class CreateCustomerDTO
+    public class AddCustomerDTO
     {
         public string lastName { get; set; }
         public string firstName { get; set; }

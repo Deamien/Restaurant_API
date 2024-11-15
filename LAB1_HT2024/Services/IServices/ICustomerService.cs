@@ -9,7 +9,7 @@ namespace LAB1_HT2024.Services.IServices
         Task<CustomerViewModel> GetCustomerById(int CustomerId);
         Task RemoveCustomer(int CustomerId);
         Task UpdateCustomer(CustomerDTO updateCustomerDTO);
-        Task AddCustomer(CreateCustomerDTO addCustomerDTO);
+        Task AddCustomer(AddCustomerDTO addCustomerDTO);
 
         //Kanske behöver skapa en ny DTO för att några value inte är relevanta
     }

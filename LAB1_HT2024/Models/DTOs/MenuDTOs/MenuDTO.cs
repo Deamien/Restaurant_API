@@ -2,10 +2,9 @@
 {
     public class MenuDTO
     {
-        public int DishId { get; set; }
-        public string dishName { get; set; }
+        public int MenuItemId { get; set; }
+        public string name { get; set; }
         public int price { get; set; }
-        public string description { get; set; }
-        public bool isAvailable { get; set; }
+        public bool available { get; set; }
     }
 }

@@ -71,9 +71,14 @@ namespace LAB1_HT2024.Services
             await _reservationRepository.UpdateReservation(reservation);
         }
 
-        public async Task AddReservation(CreateReservationDTO createReservationDTO)
+        public async Task AddReservation(AddReservationDTO createReservationDTO)
         {
             var AvailableTables = await _tableRepository.GetAvailableTables(createReservationDTO.groupSize, createReservationDTO.reservationStart);
+
+            if (!AvailableTables.Any(t => t.Id == createReservationDTO.TableId))
+            {
+                throw new InvalidOperationException("The requested table is not available.");
+            }
 
             var NewReservation = new Reservation
             {

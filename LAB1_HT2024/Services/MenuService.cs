@@ -1,8 +1,79 @@
-﻿using LAB1_HT2024.Services.IServices;
+﻿using LAB1_HT2024.Data;
+using LAB1_HT2024.Data.Repository.IRepository;
+using LAB1_HT2024.Models.ViewModels;
+using LAB1_HT2024.Services.IServices;
+using System.Runtime.CompilerServices;
+using LAB1_HT2024.Models.DTOs.MenuDTOs;
+using LAB1_HT2024.Models;
 
 namespace LAB1_HT2024.Services
 {
     public class MenuService : IMenuService
     {
+        private readonly IMenuRepository _menuRepository;
+
+        public MenuService(IMenuRepository menuRepository)
+        {
+            _menuRepository = menuRepository;
+        }
+
+
+        public async Task<IEnumerable<MenuViewModel>> GetAllMenuItems() 
+        {
+           var GetMenuList = await _menuRepository.GetAllMenuItems();
+
+            return GetMenuList.Select(m => new MenuViewModel
+            {
+                MenuId = m.Id,
+                name = m.Name,
+                price = m.Price,
+                availabile = m.Availabile
+            }).ToList();
+        }
+
+        public async Task<MenuViewModel> GetMenuItemById(int MenuItemId)
+        {
+            var GetMenu = await _menuRepository.GetMenuItemById(MenuItemId);
+
+            return new MenuViewModel
+            {
+                MenuId = GetMenu.Id,
+                name = GetMenu.Name,
+                price = GetMenu.Price,
+                availabile = GetMenu.Availabile
+            };
+        }
+        
+        public async Task RemoveMenuItem(int MenuItemId)
+        {
+            var GetMenu = await _menuRepository.GetMenuItemById(MenuItemId);
+
+            await _menuRepository.RemoveMenuItem(GetMenu);
+        }
+
+        public async Task UpdateMenuItem(MenuDTO updateMenuDTO)
+        {
+            var Menu = await _menuRepository.GetMenuItemById(updateMenuDTO.MenuItemId);
+                {
+                    Menu.Id = updateMenuDTO.MenuItemId;
+                    Menu.Name = updateMenuDTO.name;
+                    Menu.Price = updateMenuDTO.price;
+                    Menu.Availabile = updateMenuDTO.available;
+                };
+            
+            await _menuRepository.UpdateMenuItem(Menu);
+        }
+        
+        public async Task AddMenuItem(AddMenuDTO addMenuDTO)
+        {
+            var NewMenu = new Menu
+            {
+                Name = addMenuDTO.name,
+                Price = addMenuDTO.price,
+                Availabile = addMenuDTO.availabile,
+            };
+            
+            await _menuRepository.AddMenuItem(NewMenu);
+        }
     }
 }

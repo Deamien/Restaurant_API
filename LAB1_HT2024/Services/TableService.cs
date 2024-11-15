@@ -1,6 +1,8 @@
 ﻿using LAB1_HT2024.Data.Repository.IRepository;
 using LAB1_HT2024.Services.IServices;
 using LAB1_HT2024.Models.ViewModels;
+using LAB1_HT2024.Models.DTOs.TableDTOs;
+using LAB1_HT2024.Models;
 
 
 namespace LAB1_HT2024.Services
@@ -14,6 +16,54 @@ namespace LAB1_HT2024.Services
             _tableRepository = tableRepository;
         }
 
-      
+        public async Task<IEnumerable<TableViewModel>> GetAllTables() 
+        {
+            var GetTableList = await _tableRepository.GetAllTables();
+
+            return GetTableList.Select(t => new TableViewModel
+            {
+                TableId = t.Id,
+                seats = t.Seats
+            });
+            
+            
+        }
+
+        public async Task<TableViewModel> GetTableById(int TableId)
+        {
+            var GetTable = await _tableRepository.GetTableById(TableId);
+
+            return new TableViewModel
+            {
+                TableId = GetTable.Id,
+                seats = GetTable.Seats
+            };
+        }
+
+        public async Task RemoveTable(int TableId)
+        {
+            var GetTable = await _tableRepository.GetTableById(TableId);
+
+            await _tableRepository.RemoveTable(GetTable);
+        }
+
+        public async Task UpdateTable(TableDTO updateTableDTO)
+        {
+            var table = await _tableRepository.GetTableById(updateTableDTO.TableId);
+            {
+                table.Id = updateTableDTO.TableId;
+                table.Seats = updateTableDTO.seats;
+            }
+        }
+
+        public async Task AddTable(AddTableDTO addTableDTO)
+        {
+            var NewTable = new Table
+            {
+                Seats = addTableDTO.seats
+            };
+            
+            await _tableRepository.AddTable(NewTable);
+        }
     }
 }

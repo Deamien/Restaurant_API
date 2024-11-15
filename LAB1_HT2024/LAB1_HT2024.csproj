@@ -7,22 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Models\DTOs\TableDTOs\**" />
     <Compile Remove="Services\CustomerService\**" />
     <Compile Remove="Services\MenuService\**" />
     <Compile Remove="Services\ReservationService\**" />
     <Compile Remove="Services\TableService\**" />
-    <Content Remove="Models\DTOs\TableDTOs\**" />
     <Content Remove="Services\CustomerService\**" />
     <Content Remove="Services\MenuService\**" />
     <Content Remove="Services\ReservationService\**" />
     <Content Remove="Services\TableService\**" />
-    <EmbeddedResource Remove="Models\DTOs\TableDTOs\**" />
     <EmbeddedResource Remove="Services\CustomerService\**" />
     <EmbeddedResource Remove="Services\MenuService\**" />
     <EmbeddedResource Remove="Services\ReservationService\**" />
     <EmbeddedResource Remove="Services\TableService\**" />
-    <None Remove="Models\DTOs\TableDTOs\**" />
     <None Remove="Services\CustomerService\**" />
     <None Remove="Services\MenuService\**" />
     <None Remove="Services\ReservationService\**" />
@@ -30,14 +26,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Arch.EntityFrameworkCore.Design" Version="2.1.15" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.10" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.10" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.10">
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="7.0.0" />
   </ItemGroup>
 
 </Project>

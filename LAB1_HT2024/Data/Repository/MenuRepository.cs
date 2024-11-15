@@ -22,7 +22,7 @@ namespace LAB1_HT2024.Data.Repository
 
         public async Task<Menu> GetMenuItemById(int MenuItemId) 
         {
-            return await _context.Menus.FirstOrDefaultAsync(M => M.Id == MenuItemId);
+            return await _context.Menus.FirstOrDefaultAsync(m => m.Id == MenuItemId);
         }
     
         public async Task RemoveMenuItem(Menu menu)

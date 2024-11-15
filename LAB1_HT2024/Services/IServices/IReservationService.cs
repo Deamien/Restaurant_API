@@ -10,6 +10,6 @@ namespace LAB1_HT2024.Services.IServices
         Task<ReservationViewModel> GetReservationById(int ReservationId);
         Task RemoveReservation(int ReservationId);
         Task UpdateReservation(ReservationDTO updateReservationDTO);
-        Task AddReservation(CreateReservationDTO createReservationDTO);
+        Task AddReservation(AddReservationDTO createReservationDTO);
     }
 }

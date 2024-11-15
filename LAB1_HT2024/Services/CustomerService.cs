@@ -53,7 +53,7 @@ namespace LAB1_HT2024.Services
         
         public async Task UpdateCustomer(CustomerDTO updateCustomerDTO)
         {
-            var customer = await _customerRepository.GetCustomerById(updateCustomerDTO.CustomerId); //tar emot använder metoden från repository för att hämta customerid
+            var customer = await _customerRepository.GetCustomerById(updateCustomerDTO.CustomerId); //tar emot använder metoden från repository för att hämta customerid som matchar CustomerId från DTOn
             {
                 customer.FirstName = updateCustomerDTO.firstName;
                 customer.LastName = updateCustomerDTO.lastName;
@@ -64,7 +64,7 @@ namespace LAB1_HT2024.Services
             await _customerRepository.UpdateCustomer(customer); //den skickar variablen till metoden i Repository för att senare köra en update till Databas
         }
 
-        public async Task AddCustomer(CreateCustomerDTO addCustomerDTO)
+        public async Task AddCustomer(AddCustomerDTO addCustomerDTO)
         {
             var NewCustomer = new Customer
             {
