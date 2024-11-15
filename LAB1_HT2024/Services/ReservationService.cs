@@ -28,8 +28,10 @@ namespace LAB1_HT2024.Services
             {
                 ReservationId = r.Id,
                 CustomerId = r.CustomerId_FK,
-                groupSize = r.GroupSize,
                 TableId = r.TableId_FK,
+                firstName = r.customer.FirstName,
+                lastName = r.customer.LastName,
+                groupSize = r.GroupSize,
                 reservationStart = r.ReservationStart,
                 reservationEnd = r.ReservationEnd
             }).ToList();
@@ -43,8 +45,10 @@ namespace LAB1_HT2024.Services
             {
                 ReservationId = GetReservation.Id,
                 CustomerId = GetReservation.CustomerId_FK,
-                groupSize = GetReservation.GroupSize,
                 TableId = GetReservation.TableId_FK,
+                firstName = GetReservation.customer.FirstName,
+                lastName = GetReservation.customer.LastName,
+                groupSize = GetReservation.GroupSize,
                 reservationEnd = GetReservation.ReservationEnd,
                 reservationStart = GetReservation.ReservationStart
             };

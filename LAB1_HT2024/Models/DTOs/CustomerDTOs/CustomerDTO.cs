@@ -9,6 +9,5 @@ namespace LAB1_HT2024.Models.DTOs.CustomerDTOs
         public string firstName { get; set; }
         public string emailAddress { get; set; }
         public string phoneNumber { get; set; }
-        public IEnumerable<ReservationDTO>? reservationDTO { get; set; }
     }
 }

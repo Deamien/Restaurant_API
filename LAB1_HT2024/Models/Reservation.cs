@@ -14,7 +14,7 @@ namespace LAB1_HT2024.Models
         [Required]
         [ForeignKey("Table")]
         public int TableId_FK { get; set; }
-        public virtual Table table { get; set; }
+        //public virtual Table table { get; set; } //Kanske använder senare, oanvänd just nu
 
         [Required]
         [ForeignKey("Customer")]
