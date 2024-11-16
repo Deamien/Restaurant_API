@@ -10,6 +10,5 @@
         public DateTime reservationEnd { get; set; }
         public int CustomerId { get; set; }
         public int TableId { get; set; }
-
     }
 }

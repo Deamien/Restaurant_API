@@ -61,7 +61,7 @@ namespace LAB1_HT2024.Services
             await _reservationRepository.RemoveReservation(GetReservation);
         }
 
-        public async Task UpdateReservation(ReservationDTO updateReservationDTO)
+        public async Task UpdateReservation(UpdateReservationDTO updateReservationDTO)
         {
             var reservation = await _reservationRepository.GetReservationById(updateReservationDTO.ReservationId);
             {

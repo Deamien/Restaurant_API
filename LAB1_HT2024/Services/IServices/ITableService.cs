@@ -8,7 +8,7 @@ namespace LAB1_HT2024.Services.IServices
         Task<IEnumerable<TableViewModel>> GetAllTables();
         Task<TableViewModel> GetTableById(int TableId);
         Task RemoveTable(int TableId);
-        Task UpdateTable(TableDTO updateTableDTO);
+        Task UpdateTable(UpdateTableDTO updateTableDTO);
         Task AddTable(AddTableDTO addTableDTO);
     }
 }

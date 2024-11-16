@@ -1,6 +1,6 @@
 ﻿namespace LAB1_HT2024.Models.DTOs.ReservationDTOs
 {
-    public class ReservationDTO
+    public class UpdateReservationDTO
     {
         public int ReservationId { get; set; }
         public int groupSize { get; set; }

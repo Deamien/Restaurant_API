@@ -9,7 +9,7 @@ namespace LAB1_HT2024.Services.IServices
         Task<IEnumerable<ReservationViewModel>> GetAllReservations();
         Task<ReservationViewModel> GetReservationById(int ReservationId);
         Task RemoveReservation(int ReservationId);
-        Task UpdateReservation(ReservationDTO updateReservationDTO);
+        Task UpdateReservation(UpdateReservationDTO updateReservationDTO);
         Task AddReservation(AddReservationDTO createReservationDTO);
     }
 }

@@ -14,6 +14,6 @@ namespace LAB1_HT2024.Models
         public int Price { get; set; }
         
         [Required]
-        public bool Availabile { get; set; }
+        public bool Available { get; set; }
     }
 }

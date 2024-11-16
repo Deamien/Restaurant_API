@@ -9,7 +9,7 @@ namespace LAB1_HT2024.Services.IServices
         Task<IEnumerable<MenuViewModel>> GetAllMenuItems();
         Task<MenuViewModel> GetMenuItemById(int MenuItemId);
         Task RemoveMenuItem(int MenuItemId);
-        Task UpdateMenuItem(MenuDTO updateMenuDTO);
-        Task AddMenuItem(AddMenuDTO addMenuDTO);
+        Task UpdateMenuItem(UpdateMenuItemDTO updateMenuDTO);
+        Task AddMenuItem(AddMenuItemDTO addMenuDTO);
     }
 }

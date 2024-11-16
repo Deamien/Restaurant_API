@@ -25,8 +25,6 @@ namespace LAB1_HT2024.Services
                 TableId = t.Id,
                 seats = t.Seats
             });
-            
-            
         }
 
         public async Task<TableViewModel> GetTableById(int TableId)
@@ -47,13 +45,15 @@ namespace LAB1_HT2024.Services
             await _tableRepository.RemoveTable(GetTable);
         }
 
-        public async Task UpdateTable(TableDTO updateTableDTO)
+        public async Task UpdateTable(UpdateTableDTO updateTableDTO)
         {
             var table = await _tableRepository.GetTableById(updateTableDTO.TableId);
             {
                 table.Id = updateTableDTO.TableId;
                 table.Seats = updateTableDTO.seats;
             }
+           
+            await _tableRepository.UpdateTable(table);
         }
 
         public async Task AddTable(AddTableDTO addTableDTO)

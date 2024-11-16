@@ -27,7 +27,7 @@ namespace LAB1_HT2024.Services
                 MenuId = m.Id,
                 name = m.Name,
                 price = m.Price,
-                availabile = m.Availabile
+                available = m.Available
             }).ToList();
         }
 
@@ -40,7 +40,7 @@ namespace LAB1_HT2024.Services
                 MenuId = GetMenu.Id,
                 name = GetMenu.Name,
                 price = GetMenu.Price,
-                availabile = GetMenu.Availabile
+                available = GetMenu.Available
             };
         }
         
@@ -51,26 +51,26 @@ namespace LAB1_HT2024.Services
             await _menuRepository.RemoveMenuItem(GetMenu);
         }
 
-        public async Task UpdateMenuItem(MenuDTO updateMenuDTO)
+        public async Task UpdateMenuItem(UpdateMenuItemDTO updateMenuDTO)
         {
             var Menu = await _menuRepository.GetMenuItemById(updateMenuDTO.MenuItemId);
                 {
                     Menu.Id = updateMenuDTO.MenuItemId;
                     Menu.Name = updateMenuDTO.name;
                     Menu.Price = updateMenuDTO.price;
-                    Menu.Availabile = updateMenuDTO.available;
+                    Menu.Available = updateMenuDTO.available;
                 };
             
             await _menuRepository.UpdateMenuItem(Menu);
         }
         
-        public async Task AddMenuItem(AddMenuDTO addMenuDTO)
+        public async Task AddMenuItem(AddMenuItemDTO addMenuDTO)
         {
             var NewMenu = new Menu
             {
                 Name = addMenuDTO.name,
                 Price = addMenuDTO.price,
-                Availabile = addMenuDTO.availabile,
+                Available = addMenuDTO.available,
             };
             
             await _menuRepository.AddMenuItem(NewMenu);

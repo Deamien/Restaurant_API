@@ -2,7 +2,7 @@
 
 namespace LAB1_HT2024.Models.DTOs.CustomerDTOs
 {
-    public class CustomerDTO
+    public class UpdateCustomerDTO
     {
         public int CustomerId { get; set; }
         public string lastName { get; set; }

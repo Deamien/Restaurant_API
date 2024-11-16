@@ -51,7 +51,7 @@ namespace LAB1_HT2024.Services
             await _customerRepository.RemoveCustomer(GetCustomer);
         }
         
-        public async Task UpdateCustomer(CustomerDTO updateCustomerDTO)
+        public async Task UpdateCustomer(UpdateCustomerDTO updateCustomerDTO)
         {
             var customer = await _customerRepository.GetCustomerById(updateCustomerDTO.CustomerId); //tar emot använder metoden från repository för att hämta customerid som matchar CustomerId från DTOn
             {
