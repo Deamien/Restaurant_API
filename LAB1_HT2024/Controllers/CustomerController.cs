@@ -30,7 +30,7 @@ namespace LAB1_HT2024.Controllers
 
 
         [HttpGet]
-        [Route("{CustomerId]")]
+        [Route("{CustomerId}")]
         public async Task<IActionResult> GetCustomerById(int CustomerId)
         {
             try
