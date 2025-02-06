@@ -2,7 +2,7 @@
 {
     public class AdminLogin
     {
-        public int id { get; set; }
+        public int Id { get; set; }
 
         public string Username { get; set; }
 

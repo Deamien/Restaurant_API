@@ -9,10 +9,11 @@ namespace LAB1_HT2024.Data
         public DbSet<Menu> Menus { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
         public DbSet<Table> Tables { get; set; }
+        public DbSet<AdminLogin> Admin { get; set; }
 
-        public RestaurantContext(DbContextOptions<RestaurantContext> options) : base(options) 
-        { 
-        
+        public RestaurantContext(DbContextOptions<RestaurantContext> options) : base(options)
+        {
+
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -22,16 +23,16 @@ namespace LAB1_HT2024.Data
             modelBuilder.Entity<Table>().HasData(
                 new Table { Id = 1, Seats = 2 },
                 new Table { Id = 2, Seats = 3 },
-                new Table { Id = 3, Seats = 4},
+                new Table { Id = 3, Seats = 4 },
                 new Table { Id = 4, Seats = 5 },
-                new Table { Id = 5, Seats = 6},
+                new Table { Id = 5, Seats = 6 },
                 new Table { Id = 6, Seats = 7 },
                 new Table { Id = 7, Seats = 8 },
                 new Table { Id = 8, Seats = 9 },
                 new Table { Id = 9, Seats = 10 },
                 new Table { Id = 10, Seats = 11 },
                 new Table { Id = 11, Seats = 12 },
-                new Table { Id = 12, Seats = 13 },   
+                new Table { Id = 12, Seats = 13 },
                 new Table { Id = 13, Seats = 14 },
                 new Table { Id = 14, Seats = 15 }
                 );

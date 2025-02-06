@@ -22,7 +22,7 @@ namespace LAB1_HT2024.Migrations
                     FirstName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
                     EmailAddress = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false)
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -37,7 +37,7 @@ namespace LAB1_HT2024.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Price = table.Column<int>(type: "int", nullable: false),
-                    available = table.Column<bool>(type: "bit", nullable: false)
+                    Available = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -89,7 +89,7 @@ namespace LAB1_HT2024.Migrations
 
             migrationBuilder.InsertData(
                 table: "Menus",
-                columns: new[] { "Id", "available", "Name", "Price" },
+                columns: new[] { "Id", "Available", "Name", "Price" },
                 values: new object[,]
                 {
                     { 1, true, "Margherita Pizza", 100 },

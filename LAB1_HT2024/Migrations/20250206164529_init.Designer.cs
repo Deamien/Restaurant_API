@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LAB1_HT2024.Migrations
 {
     [DbContext(typeof(RestaurantContext))]
-    [Migration("20241116023913_init")]
+    [Migration("20250206164529_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -49,8 +49,7 @@ namespace LAB1_HT2024.Migrations
 
                     b.Property<string>("PhoneNumber")
                         .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -65,7 +64,7 @@ namespace LAB1_HT2024.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<bool>("available")
+                    b.Property<bool>("Available")
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
@@ -83,98 +82,98 @@ namespace LAB1_HT2024.Migrations
                         new
                         {
                             Id = 1,
-                            available = true,
+                            Available = true,
                             Name = "Margherita Pizza",
                             Price = 100
                         },
                         new
                         {
                             Id = 2,
-                            available = true,
+                            Available = true,
                             Name = "Caesar Salad",
                             Price = 60
                         },
                         new
                         {
                             Id = 3,
-                            available = true,
+                            Available = true,
                             Name = "Spaghetti Bolognese",
                             Price = 120
                         },
                         new
                         {
                             Id = 4,
-                            available = false,
+                            Available = false,
                             Name = "Grilled Salmon",
                             Price = 150
                         },
                         new
                         {
                             Id = 5,
-                            available = true,
+                            Available = true,
                             Name = "Chocolate Cake",
                             Price = 70
                         },
                         new
                         {
                             Id = 6,
-                            available = true,
+                            Available = true,
                             Name = "Bruschetta",
                             Price = 74
                         },
                         new
                         {
                             Id = 7,
-                            available = true,
+                            Available = true,
                             Name = "Fried Calamari",
                             Price = 109
                         },
                         new
                         {
                             Id = 8,
-                            available = true,
+                            Available = true,
                             Name = "Marinara Sauce Spaghetti",
                             Price = 94
                         },
                         new
                         {
                             Id = 9,
-                            available = true,
+                            Available = true,
                             Name = "Chicken Alfredo",
                             Price = 134
                         },
                         new
                         {
                             Id = 10,
-                            available = true,
+                            Available = true,
                             Name = "Beef Burger",
                             Price = 119
                         },
                         new
                         {
                             Id = 11,
-                            available = true,
+                            Available = true,
                             Name = "Vegetable Stir Fry",
                             Price = 104
                         },
                         new
                         {
                             Id = 12,
-                            available = true,
+                            Available = true,
                             Name = "BBQ Ribs",
                             Price = 169
                         },
                         new
                         {
                             Id = 13,
-                            available = true,
+                            Available = true,
                             Name = "Shrimp Scampi",
                             Price = 149
                         },
                         new
                         {
                             Id = 14,
-                            available = true,
+                            Available = true,
                             Name = "Eggplant Parmesan",
                             Price = 124
                         });
