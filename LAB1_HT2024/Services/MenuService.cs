@@ -18,11 +18,11 @@ namespace LAB1_HT2024.Services
         }
 
 
-        public async Task<IEnumerable<MenuViewModel>> GetAllMenuItems() 
+        public async Task<IEnumerable<GetMenuDTO>> GetAllMenuItems() 
         {
            var GetMenuList = await _menuRepository.GetAllMenuItems();
 
-            return GetMenuList.Select(m => new MenuViewModel
+            return GetMenuList.Select(m => new GetMenuDTO
             {
                 MenuId = m.Id,
                 name = m.Name,
@@ -31,11 +31,11 @@ namespace LAB1_HT2024.Services
             }).ToList();
         }
 
-        public async Task<MenuViewModel> GetMenuItemById(int MenuItemId)
+        public async Task<GetMenuDTO> GetMenuItemById(int MenuItemId)
         {
             var GetMenu = await _menuRepository.GetMenuItemById(MenuItemId);
 
-            return new MenuViewModel
+            return new GetMenuDTO
             {
                 MenuId = GetMenu.Id,
                 name = GetMenu.Name,

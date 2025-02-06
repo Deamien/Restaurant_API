@@ -1,6 +1,6 @@
-﻿namespace LAB1_HT2024.Models.ViewModels
+﻿namespace LAB1_HT2024.Models.DTOs.ReservationDTOs
 {
-    public class ReservationViewModel
+    public class GetReservationDTO
     {
         public int ReservationId { get; set; }
         public int groupSize { get; set; }

@@ -1,6 +1,6 @@
-﻿namespace LAB1_HT2024.Models.ViewModels
+﻿namespace LAB1_HT2024.Models.DTOs.CustomerDTOs
 {
-    public class CustomerViewModel
+    public class GetCustomerDTO
     {
         public int CustomerId { get; set; }
         public string firstName { get; set; }

@@ -2,7 +2,7 @@
 
 namespace LAB1_HT2024.Models.ViewModels
 {
-    public class MenuViewModel
+    public class GetMenuDTO
     {
         public int MenuId { get; set; }
         public string name { get; set; }

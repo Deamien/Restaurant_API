@@ -1,11 +1,7 @@
-﻿using LAB1_HT2024.Models;
-using LAB1_HT2024.Data.Repository.IRepository;
-using LAB1_HT2024.Models.ViewModels;
-using LAB1_HT2024.Services.IServices;
+﻿using LAB1_HT2024.Data.Repository.IRepository;
+using LAB1_HT2024.Models;
 using LAB1_HT2024.Models.DTOs.ReservationDTOs;
-using LAB1_HT2024.Data.Repository;
-using Microsoft.Identity.Client;
-using System.Reflection.Metadata.Ecma335;
+using LAB1_HT2024.Services.IServices;
 
 namespace LAB1_HT2024.Services
 {
@@ -20,11 +16,11 @@ namespace LAB1_HT2024.Services
             _tableRepository = tableRepository;
         }
 
-        public async Task<IEnumerable<ReservationViewModel>> GetAllReservations()
+        public async Task<IEnumerable<GetReservationDTO>> GetAllReservations()
         {
             var GetReservationList = await _reservationRepository.GetAllReservations();
 
-            return GetReservationList.Select(r => new ReservationViewModel
+            return GetReservationList.Select(r => new GetReservationDTO
             {
                 ReservationId = r.Id,
                 CustomerId = r.CustomerId_FK,
@@ -37,11 +33,11 @@ namespace LAB1_HT2024.Services
             }).ToList();
         }
 
-        public async Task<ReservationViewModel> GetReservationById(int ReservationId)
+        public async Task<GetReservationDTO> GetReservationById(int ReservationId)
         {
             var GetReservation = await _reservationRepository.GetReservationById(ReservationId);
 
-            return new ReservationViewModel
+            return new GetReservationDTO
             {
                 ReservationId = GetReservation.Id,
                 CustomerId = GetReservation.CustomerId_FK,

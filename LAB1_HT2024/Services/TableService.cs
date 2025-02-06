@@ -1,6 +1,5 @@
 ﻿using LAB1_HT2024.Data.Repository.IRepository;
 using LAB1_HT2024.Services.IServices;
-using LAB1_HT2024.Models.ViewModels;
 using LAB1_HT2024.Models.DTOs.TableDTOs;
 using LAB1_HT2024.Models;
 
@@ -16,22 +15,22 @@ namespace LAB1_HT2024.Services
             _tableRepository = tableRepository;
         }
 
-        public async Task<IEnumerable<TableViewModel>> GetAllTables() 
+        public async Task<IEnumerable<GetTableDTO>> GetAllTables() 
         {
             var GetTableList = await _tableRepository.GetAllTables();
 
-            return GetTableList.Select(t => new TableViewModel
+            return GetTableList.Select(t => new GetTableDTO
             {
                 TableId = t.Id,
                 seats = t.Seats
             });
         }
 
-        public async Task<TableViewModel> GetTableById(int TableId)
+        public async Task<GetTableDTO> GetTableById(int TableId)
         {
             var GetTable = await _tableRepository.GetTableById(TableId);
 
-            return new TableViewModel
+            return new GetTableDTO
             {
                 TableId = GetTable.Id,
                 seats = GetTable.Seats

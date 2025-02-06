@@ -1,9 +1,7 @@
 ﻿using LAB1_HT2024.Data.Repository.IRepository;
 using LAB1_HT2024.Models;
 using LAB1_HT2024.Models.DTOs.CustomerDTOs;
-using LAB1_HT2024.Models.ViewModels;
 using LAB1_HT2024.Services.IServices;
-using System.IdentityModel.Tokens.Jwt;
 
 namespace LAB1_HT2024.Services
 {
@@ -16,11 +14,11 @@ namespace LAB1_HT2024.Services
             _customerRepository = customerRepository;
         }
 
-        public async Task<IEnumerable<CustomerViewModel>> GetAllCustomers()
+        public async Task<IEnumerable<GetCustomerDTO>> GetAllCustomers()
         {
             var GetCustomerList = await _customerRepository.GetAllCustomers();
 
-            return GetCustomerList.Select(c => new CustomerViewModel
+            return GetCustomerList.Select(c => new GetCustomerDTO
             {
                 CustomerId = c.Id,
                 firstName = c.FirstName,
@@ -29,28 +27,28 @@ namespace LAB1_HT2024.Services
                 phoneNumber = c.PhoneNumber
             }).ToList();
         }
-        
-        public async Task<CustomerViewModel> GetCustomerById(int CustomerId)
+
+        public async Task<GetCustomerDTO> GetCustomerById(int CustomerId)
         {
             var GetCustomer = await _customerRepository.GetCustomerById(CustomerId);
 
-            return new CustomerViewModel
+            return new GetCustomerDTO
             {
                 CustomerId = GetCustomer.Id,
                 firstName = GetCustomer.FirstName,
-                lastName =  GetCustomer.LastName,
+                lastName = GetCustomer.LastName,
                 emailAddress = GetCustomer.EmailAddress,
                 phoneNumber = GetCustomer.PhoneNumber
             };
         }
-        
+
         public async Task RemoveCustomer(int CustomerId)
         {
             var GetCustomer = await _customerRepository.GetCustomerById(CustomerId);
-            
+
             await _customerRepository.RemoveCustomer(GetCustomer);
         }
-        
+
         public async Task UpdateCustomer(UpdateCustomerDTO updateCustomerDTO)
         {
             var customer = await _customerRepository.GetCustomerById(updateCustomerDTO.CustomerId); //tar emot använder metoden från repository för att hämta customerid som matchar CustomerId från DTOn
