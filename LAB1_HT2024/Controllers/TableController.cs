@@ -2,6 +2,7 @@
 using LAB1_HT2024.Models.DTOs.TableDTOs;
 using LAB1_HT2024.Services;
 using LAB1_HT2024.Services.IServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
@@ -24,7 +25,16 @@ namespace LAB1_HT2024.Controllers
         public async Task<IActionResult> GetAllTables()
         {
             var tables = await _tableService.GetAllTables();
-            return Ok(tables);
+            
+            if(tables != null)
+            {
+                return Ok(tables);
+            }
+
+            else
+            {
+                return NotFound("No Tables");
+            }  
         }
 
         [HttpGet]
@@ -34,6 +44,7 @@ namespace LAB1_HT2024.Controllers
             try
             {
                 var table = await _tableService.GetTableById(TableId);
+                
                 if (table != null)
                 {
                     return Ok(table);
@@ -41,7 +52,6 @@ namespace LAB1_HT2024.Controllers
                 else
                 {
                     return NotFound("Table is empty");
-
                 }
             }
             catch (KeyNotFoundException)

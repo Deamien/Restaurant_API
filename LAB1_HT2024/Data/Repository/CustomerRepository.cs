@@ -23,13 +23,21 @@ namespace LAB1_HT2024.Data.Repository
 
         public async Task<Customer> GetCustomerById(int CustomerId)
         {
-            return await _context.Customers.FirstOrDefaultAsync(C => C.Id == CustomerId);
+            var Customer = await _context.Customers.FirstOrDefaultAsync(C => C.Id == CustomerId);
+                
+               
         }
 
-        public async Task RemoveCustomer(Customer customer)
+        public async Task RemoveCustomer(int CustomerId)
         {
-            _context.Customers.Remove(customer);
+            var customer = await _context.Customers.FirstOrDefaultAsync(C => C.Id == CustomerId);
 
+            if (customer == null)
+            {
+                throw new KeyNotFoundException("Customer not found.");
+            }
+
+            _context.Customers.Remove(customer);
             await _context.SaveChangesAsync();
         }
 

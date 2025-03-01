@@ -24,7 +24,16 @@ namespace LAB1_HT2024.Controllers
         public async Task<IActionResult> GetAllReservations()
         {
             var reservations = await _reservationService.GetAllReservations();
-            return Ok(reservations);
+            
+            if (reservations != null) 
+            {
+                return Ok(reservations);
+            }
+            
+            else
+            {
+                return NotFound("There are no reservations");
+            }
         }
 
 

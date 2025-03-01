@@ -1,8 +1,6 @@
-﻿using LAB1_HT2024.Data;
-using LAB1_HT2024.Data.Repository.IRepository;
+﻿using LAB1_HT2024.Data.Repository.IRepository;
 using LAB1_HT2024.Models.ViewModels;
 using LAB1_HT2024.Services.IServices;
-using System.Runtime.CompilerServices;
 using LAB1_HT2024.Models.DTOs.MenuDTOs;
 using LAB1_HT2024.Models;
 

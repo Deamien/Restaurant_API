@@ -3,6 +3,7 @@ using LAB1_HT2024.Models.DTOs.CustomerDTOs;
 using LAB1_HT2024.Models.DTOs.TableDTOs;
 using LAB1_HT2024.Services;
 using LAB1_HT2024.Services.IServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
@@ -25,7 +26,16 @@ namespace LAB1_HT2024.Controllers
         public async Task<IActionResult> GetAllCustomers()
         {
             var customers = await _customerService.GetAllCustomers();
-            return Ok(customers);
+                
+            if (customers != null)
+            {
+                return Ok(customers);
+            }
+                
+            else
+            {
+                return NotFound("There are no registered customers");
+            }
         }
 
 
@@ -33,23 +43,9 @@ namespace LAB1_HT2024.Controllers
         [Route("{CustomerId}")]
         public async Task<IActionResult> GetCustomerById(int CustomerId)
         {
-            try
-            {
-                var customer = await _customerService.GetCustomerById(CustomerId);
-                if (customer != null)
-                {
-                    return Ok(customer);
-                }
-                else 
-                {
-                    return BadRequest("Customer is empty");
-                }
-            }
+            var customer = await _customerService.GetCustomerById(CustomerId);
 
-            catch (KeyNotFoundException)
-            {
-                return NotFound("CustomerId not found");
-            }
+            return Ok(customer);
         }
 
         [HttpDelete]
@@ -57,15 +53,9 @@ namespace LAB1_HT2024.Controllers
 
         public async Task<IActionResult> RemoveCustomer(int CustomerId)
         {
-            try
-            {
-                await _customerService.RemoveCustomer(CustomerId);
+            await _customerService.RemoveCustomer(CustomerId);
+
                 return Ok("Customer Removed");
-            }
-            catch (KeyNotFoundException)
-            {
-                return NotFound("CustomerId not found");
-            }
         }
 
         [HttpPut]
@@ -89,15 +79,15 @@ namespace LAB1_HT2024.Controllers
         [Route("add")]
         public async Task<IActionResult> AddCustomer([FromBody] AddCustomerDTO addCustomerDTO)
         {
-            if (addCustomerDTO != null)
+            if (!ModelState.IsValid)
             {
                 await _customerService.AddCustomer(addCustomerDTO);
-                return Ok("Added a new customer");
+                return BadRequest(ModelState);
             }
 
             else
             {
-                return BadRequest("Please fill out the needed information");
+                return Ok("Added a new customer");
             }
         }
     }       
