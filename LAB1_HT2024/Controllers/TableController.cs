@@ -1,14 +1,11 @@
-﻿using LAB1_HT2024.Models;
-using LAB1_HT2024.Models.DTOs.TableDTOs;
-using LAB1_HT2024.Services;
+﻿using LAB1_HT2024.Models.DTOs.TableDTOs;
 using LAB1_HT2024.Services.IServices;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace LAB1_HT2024.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class TableController : ControllerBase
@@ -25,8 +22,8 @@ namespace LAB1_HT2024.Controllers
         public async Task<IActionResult> GetAllTables()
         {
             var tables = await _tableService.GetAllTables();
-            
-            if(tables != null)
+
+            if (tables != null)
             {
                 return Ok(tables);
             }
@@ -34,7 +31,7 @@ namespace LAB1_HT2024.Controllers
             else
             {
                 return NotFound("No Tables");
-            }  
+            }
         }
 
         [HttpGet]
@@ -44,7 +41,7 @@ namespace LAB1_HT2024.Controllers
             try
             {
                 var table = await _tableService.GetTableById(TableId);
-                
+
                 if (table != null)
                 {
                     return Ok(table);
@@ -95,7 +92,7 @@ namespace LAB1_HT2024.Controllers
         [Route("add")]
         public async Task<IActionResult> AddTable([FromBody] AddTableDTO addTableDTO)
         {
-            if(addTableDTO.seats != null)
+            if (addTableDTO.seats != null)
             {
                 await _tableService.AddTable(addTableDTO);
                 return Ok("Added a new table");

@@ -1,14 +1,11 @@
-﻿using LAB1_HT2024.Models;
-using LAB1_HT2024.Models.DTOs.CustomerDTOs;
-using LAB1_HT2024.Models.DTOs.TableDTOs;
-using LAB1_HT2024.Services;
+﻿using LAB1_HT2024.Models.DTOs.CustomerDTOs;
 using LAB1_HT2024.Services.IServices;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace LAB1_HT2024.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CustomerController : ControllerBase
@@ -26,12 +23,12 @@ namespace LAB1_HT2024.Controllers
         public async Task<IActionResult> GetAllCustomers()
         {
             var customers = await _customerService.GetAllCustomers();
-                
+
             if (customers != null)
             {
                 return Ok(customers);
             }
-                
+
             else
             {
                 return NotFound("There are no registered customers");
@@ -55,7 +52,7 @@ namespace LAB1_HT2024.Controllers
         {
             await _customerService.RemoveCustomer(CustomerId);
 
-                return Ok("Customer Removed");
+            return Ok("Customer Removed");
         }
 
         [HttpPut]
@@ -90,7 +87,7 @@ namespace LAB1_HT2024.Controllers
                 return Ok("Added a new customer");
             }
         }
-    }       
+    }
 }
 
 

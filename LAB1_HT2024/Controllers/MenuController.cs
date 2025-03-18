@@ -1,12 +1,11 @@
 ﻿using LAB1_HT2024.Models.DTOs.MenuDTOs;
-using LAB1_HT2024.Services;
 using LAB1_HT2024.Services.IServices;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LAB1_HT2024.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class MenuController : ControllerBase
@@ -24,16 +23,16 @@ namespace LAB1_HT2024.Controllers
         public async Task<IActionResult> GetAllMenuItems()
         {
             var menus = await _menuService.GetAllMenuItems();
-            
-            if(menus != null)
+
+            if (menus != null)
             {
                 return Ok(menus);
             }
-            
+
             else
             {
                 return NotFound("No Menu items exist");
-            } 
+            }
         }
 
 
@@ -44,12 +43,12 @@ namespace LAB1_HT2024.Controllers
             try
             {
                 var menu = await _menuService.GetMenuItemById(MenuItemId);
-                
+
                 if (menu != null)
                 {
                     return Ok(menu);
                 }
-                
+
                 else
                 {
                     return BadRequest("Menu is empty");
@@ -72,7 +71,7 @@ namespace LAB1_HT2024.Controllers
                 await _menuService.RemoveMenuItem(MenuItemId);
                 return Ok("Menu Removed");
             }
-            
+
             catch (KeyNotFoundException)
             {
                 return NotFound("MenuItemId not found");
@@ -84,7 +83,7 @@ namespace LAB1_HT2024.Controllers
 
         public async Task<IActionResult> UpdateMenuItem(int MenuItemId, [FromBody] UpdateMenuItemDTO updateMenuItemDTO)
         {
-            
+
             if (MenuItemId == updateMenuItemDTO.MenuItemId)
             {
                 await _menuService.UpdateMenuItem(updateMenuItemDTO);

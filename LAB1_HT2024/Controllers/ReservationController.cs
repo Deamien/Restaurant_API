@@ -1,13 +1,11 @@
-﻿using LAB1_HT2024.Models;
-using LAB1_HT2024.Models.DTOs.CustomerDTOs;
-using LAB1_HT2024.Models.DTOs.ReservationDTOs;
-using LAB1_HT2024.Services;
+﻿using LAB1_HT2024.Models.DTOs.ReservationDTOs;
 using LAB1_HT2024.Services.IServices;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LAB1_HT2024.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ReservationController : ControllerBase
@@ -24,12 +22,12 @@ namespace LAB1_HT2024.Controllers
         public async Task<IActionResult> GetAllReservations()
         {
             var reservations = await _reservationService.GetAllReservations();
-            
-            if (reservations != null) 
+
+            if (reservations != null)
             {
                 return Ok(reservations);
             }
-            
+
             else
             {
                 return NotFound("There are no reservations");
@@ -48,7 +46,7 @@ namespace LAB1_HT2024.Controllers
                 {
                     return Ok(reservation);
                 }
-                else 
+                else
                 {
                     return BadRequest("Reservation is empty");
                 }
@@ -108,5 +106,5 @@ namespace LAB1_HT2024.Controllers
         }
     }
 }
-    
+
 
