@@ -1,7 +1,6 @@
 ﻿using LAB1_HT2024.Data.Repository.IRepository;
 using LAB1_HT2024.Models;
 using Microsoft.EntityFrameworkCore;
-using LAB1_HT2024.Data;
 
 namespace LAB1_HT2024.Data.Repository
 {
@@ -16,7 +15,9 @@ namespace LAB1_HT2024.Data.Repository
 
         public async Task<IEnumerable<Customer>> GetAllCustomers()
         {
-            var CustomerList = await _context.Customers.ToListAsync();
+            // Optimerar datahämtning genom att förhindra att entiteter spåras av DbContext, 
+            // vilket förbättrar prestandan vid endast läsning av data.
+            var CustomerList = await _context.Customers.AsNoTracking().ToListAsync();
 
             return CustomerList;
         }
@@ -24,8 +25,8 @@ namespace LAB1_HT2024.Data.Repository
         public async Task<Customer> GetCustomerById(int CustomerId)
         {
             var Customer = await _context.Customers.FirstOrDefaultAsync(C => C.Id == CustomerId);
-                
-               
+
+            return Customer;
         }
 
         public async Task RemoveCustomer(int CustomerId)

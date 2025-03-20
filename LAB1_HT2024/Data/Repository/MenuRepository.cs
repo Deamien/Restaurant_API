@@ -1,7 +1,5 @@
 ﻿using LAB1_HT2024.Data.Repository.IRepository;
-using LAB1_HT2024.Data;
 using LAB1_HT2024.Models;
-using System.Runtime.CompilerServices;
 using Microsoft.EntityFrameworkCore;
 
 namespace LAB1_HT2024.Data.Repository
@@ -15,16 +13,16 @@ namespace LAB1_HT2024.Data.Repository
             _context = context;
         }
 
-        public async Task<IEnumerable<Menu>> GetAllMenuItems() 
-        { 
-            return await _context.Menus.ToListAsync();
+        public async Task<IEnumerable<Menu>> GetAllMenuItems()
+        {
+            return await _context.Menus.AsNoTracking().ToListAsync();
         }
 
-        public async Task<Menu> GetMenuItemById(int MenuItemId) 
+        public async Task<Menu> GetMenuItemById(int MenuItemId)
         {
             return await _context.Menus.FirstOrDefaultAsync(m => m.Id == MenuItemId);
         }
-    
+
         public async Task RemoveMenuItem(Menu menu)
         {
 
@@ -46,5 +44,5 @@ namespace LAB1_HT2024.Data.Repository
 
             await _context.SaveChangesAsync();
         }
-    }  
+    }
 }

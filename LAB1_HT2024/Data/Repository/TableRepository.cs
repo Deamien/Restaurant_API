@@ -1,10 +1,6 @@
 ﻿using LAB1_HT2024.Data.Repository.IRepository;
-using LAB1_HT2024.Data;
 using LAB1_HT2024.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging.Console;
-using Microsoft.Extensions.Hosting.Internal;
-using LAB1_HT2024.Models.DTOs.ReservationDTOs;
 
 namespace LAB1_HT2024.Data.Repository
 {
@@ -19,17 +15,17 @@ namespace LAB1_HT2024.Data.Repository
 
         public async Task<IEnumerable<Table>> GetAllTables()
         {
-            return await _context.Tables.ToListAsync();
+            return await _context.Tables.AsNoTracking().ToListAsync();
 
         }
 
         public async Task<Table> GetTableById(int TableId)
         {
-            return await _context.Tables.FirstOrDefaultAsync(t => t.Id == TableId);      
+            return await _context.Tables.FirstOrDefaultAsync(t => t.Id == TableId);
         }
 
 
-        public async Task UpdateTable(Table table) 
+        public async Task UpdateTable(Table table)
         {
             _context.Update(table);
 

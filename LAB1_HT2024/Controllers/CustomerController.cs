@@ -1,11 +1,10 @@
 ﻿using LAB1_HT2024.Models.DTOs.CustomerDTOs;
 using LAB1_HT2024.Services.IServices;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LAB1_HT2024.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CustomerController : ControllerBase
