@@ -16,7 +16,6 @@ namespace LAB1_HT2024.Models.DTOs.CustomerDTOs
         [EmailAddress]
         public string emailAddress { get; set; }
 
-
         [Required(ErrorMessage = "Phone Number is required")]
         [Phone]
         [RegularExpression(@"^\d{10}$", ErrorMessage = "Phone Number is invalid")]

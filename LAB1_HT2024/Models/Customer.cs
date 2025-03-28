@@ -16,7 +16,7 @@ namespace LAB1_HT2024.Models
         [Required]
         public string EmailAddress { get; set; }
 
-        [Required(ErrorMessage = "Phone Number is required")]
+        [Required]
         public string PhoneNumber { get; set; }
     }
 }

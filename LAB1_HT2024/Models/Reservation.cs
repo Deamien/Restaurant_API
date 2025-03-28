@@ -7,21 +7,19 @@ namespace LAB1_HT2024.Models
     {
         [Key]
         public int Id { get; set; }
+
         [Required]
         public int GroupSize { get; set; }
 
-        
         [Required]
         [ForeignKey("Table")]
         public int TableId_FK { get; set; }
-        //public virtual Table table { get; set; } //Kanske använder senare, oanvänd just nu
+        public virtual Table Table { get; set; }
 
         [Required]
         [ForeignKey("Customer")]
         public int CustomerId_FK { get; set; }
-        public virtual Customer customer { get; set; }
-
-
+        public virtual Customer Customer { get; set; }
 
         [Required]
         public DateTime ReservationStart { get; set; }

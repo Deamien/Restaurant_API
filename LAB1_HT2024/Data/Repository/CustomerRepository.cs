@@ -24,7 +24,7 @@ namespace LAB1_HT2024.Data.Repository
 
         public async Task<Customer> GetCustomerById(int CustomerId)
         {
-            var Customer = await _context.Customers.FirstOrDefaultAsync(C => C.Id == CustomerId);
+            var Customer = await _context.Customers.FirstOrDefaultAsync(c => c.Id == CustomerId);
 
             return Customer;
         }
