@@ -25,8 +25,8 @@ namespace LAB1_HT2024.Services
                 ReservationId = r.Id,
                 CustomerId = r.CustomerId_FK,
                 TableId = r.TableId_FK,
-                firstName = r.customer.FirstName,
-                lastName = r.customer.LastName,
+                firstName = r.Customer.FirstName,
+                lastName = r.Customer.LastName,
                 groupSize = r.GroupSize,
                 reservationStart = r.ReservationStart,
                 reservationEnd = r.ReservationEnd
@@ -42,8 +42,8 @@ namespace LAB1_HT2024.Services
                 ReservationId = GetReservation.Id,
                 CustomerId = GetReservation.CustomerId_FK,
                 TableId = GetReservation.TableId_FK,
-                firstName = GetReservation.customer.FirstName,
-                lastName = GetReservation.customer.LastName,
+                firstName = GetReservation.Customer.FirstName,
+                lastName = GetReservation.Customer.LastName,
                 groupSize = GetReservation.GroupSize,
                 reservationEnd = GetReservation.ReservationEnd,
                 reservationStart = GetReservation.ReservationStart
