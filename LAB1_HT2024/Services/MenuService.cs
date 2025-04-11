@@ -22,7 +22,7 @@ namespace LAB1_HT2024.Services
 
             return GetMenuList.Select(m => new GetMenuDTO
             {
-                MenuId = m.Id,
+                MenuItemId = m.Id,
                 name = m.Name,
                 price = m.Price,
                 available = m.Available
@@ -35,7 +35,7 @@ namespace LAB1_HT2024.Services
 
             return new GetMenuDTO
             {
-                MenuId = GetMenu.Id,
+                MenuItemId = GetMenu.Id,
                 name = GetMenu.Name,
                 price = GetMenu.Price,
                 available = GetMenu.Available

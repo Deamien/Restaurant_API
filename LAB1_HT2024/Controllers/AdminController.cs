@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LAB1_HT2024.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/admin")]
     [ApiController]
     public class AdminController : ControllerBase
     {

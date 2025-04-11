@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace LAB1_HT2024.Controllers
 {
     //[Authorize]
-    [Route("api/[controller]")]
+    [Route("api/table")]
     [ApiController]
     public class TableController : ControllerBase
     {
